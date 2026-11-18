@@ -1,321 +1,304 @@
-RepAI — AI FITNESS PERFORMANCE LAB
+# RepAI — AI Fitness Performance Platform
 
-# DESCRIPTION
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_App-111827?style=for-the-badge&logo=vercel)](https://rep-ai-nine.vercel.app)
+[![TypeScript](https://img.shields.io/badge/Frontend-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://github.com/vikas-g-10/RepAI/tree/main/frontend)
+[![Python](https://img.shields.io/badge/Backend-Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://github.com/vikas-g-10/RepAI/tree/main/backend)
+[![License](https://img.shields.io/badge/License-Not_Specified-lightgrey?style=for-the-badge)](#license)
 
-RepAI is an AI-powered personal fitness and performance platform designed to provide training, nutrition, habit, recovery, and gym-discovery assistance in one application.
+RepAI is an AI-powered fitness platform that brings training, nutrition, habit tracking, performance analysis, and gym discovery into one modern web experience.
 
-The project combines a modern web interface with a Python FastAPI backend and AI-powered services.
+**Live application:** https://rep-ai-nine.vercel.app
 
-Main features include:
+## Highlights
 
-1. AI Posture Trainer
+- Real-time posture and repetition tracking with MediaPipe Pose
+- Personalized diet and macro planning
+- AI meal photo analysis with nutrition estimates
+- Fitness habit and workout-skip risk prediction
+- Conversational AI gym coach with selectable personalities
+- Performance telemetry and consistency analysis
+- Real gym and fitness-location discovery through Geoapify
+- Goal-based workout planning
+- Responsive React and TypeScript interface
 
-   * Uses the device webcam for real-time exercise tracking.
-   * Uses MediaPipe Pose for body-position detection.
-   * Counts exercise repetitions.
-   * Provides real-time form feedback.
-   * Supports exercises such as:
+## Features
 
-     * Squats
-     * Push-ups
-     * Bicep curls
-     * Lunges
-     * Shoulder press
-   * Provides voice-based coaching.
-   * Supports workout-video upload as a backup mode.
+### AI Posture Trainer
 
-2. Diet Planner
+Uses the device webcam to analyze exercise movement in real time. Supported exercises include squats, push-ups, bicep curls, lunges, and shoulder presses.
 
-   * Calculates BMI, BMR and estimated daily energy requirements.
-   * Generates a personalized meal plan based on:
+- Counts completed repetitions
+- Reports live form feedback
+- Calculates an in-browser form score
+- Supports webcam and uploaded workout-video modes
+- Offers voice-based coaching
 
-     * Age
-     * Height
-     * Weight
-     * Sex
-     * Activity level
-     * Fitness goal
-     * Dietary preference
-   * Provides estimated calories and macronutrients.
-   * Generates a grocery list.
+### Diet Planner
 
-3. AI Meal Photo Scanner
+Generates a personalized plan from age, height, weight, sex, activity level, fitness goal, and dietary preference.
 
-   * Allows users to upload a meal photograph.
-   * Uses an AI vision model to identify visible food items.
-   * Estimates calories and macronutrients.
-   * Provides confidence levels and uncertainty information.
-   * Helps estimate remaining protein/calorie requirements.
+- BMI and estimated BMR calculations
+- Estimated daily calorie needs
+- Protein, carbohydrate, and fat targets
+- Four-meal split
+- Diet-specific grocery recommendations
 
-4. AI Fitness Habit Tracker
+### AI Meal Photo Scanner
 
-   * Evaluates recent training attendance.
-   * Considers sleep, stress and soreness.
-   * Estimates the likelihood of skipping a workout.
-   * Suggests an appropriate training-time nudge.
+Uploads meal photos to a vision model for visible-food identification and nutritional estimates.
 
-5. Virtual Gym Buddy / AI Coach
+- Item-level confidence scores
+- Estimated calories and macronutrients
+- Remaining protein and calorie estimates
+- Clear uncertainty reporting
+- Honest handling of unclear or non-food images
 
-   * Provides conversational AI fitness coaching.
-   * Supports different coaching personalities.
-   * Maintains conversation history for the current browser session.
-   * Provides sentiment detection and motivational tips.
+> Meal analysis is visual estimation, not a laboratory measurement or medical assessment.
 
-6. Performance Analyzer
+### Habit Tracker
 
-   * Analyzes exercise-performance telemetry.
-   * Calculates performance-related metrics such as:
+Uses attendance, sleep, self-reported stress, soreness, and preferred training time to estimate workout-skip risk.
 
-     * Form score
-     * Range-of-motion consistency
-     * Joint-angle consistency
-     * Rep/tempo consistency
-   * Produces an overall performance score when enough data is available.
+- Transparent rule-based score breakdown
+- Low, moderate, or high risk classification
+- Suggested workout nudge
+- No black-box machine-learning prediction
 
-7. Gym Finder
+### AI Gym Buddy
 
-   * Searches for real gyms and fitness locations using Geoapify.
-   * Uses location/geocoding information to find nearby facilities.
-   * Provides location and map information.
-   * Does not replace failed real API requests with fabricated gym listings.
+Provides contextual fitness coaching with several distinct personas:
 
-8. Workout Planner
+- Friendly Gym Bro
+- Drill Sergeant
+- Biomechanist
+- Recovery Coach
 
-   * Provides workout plans based on training goals.
-   * The planner operates locally in the frontend and does not require an AI API call.
+Conversation history remains scoped to the current browser session.
 
-# TECHNOLOGY STACK
+### Performance Analyzer
 
-Frontend:
+Analyzes completed-rep telemetry to provide descriptive performance metrics.
 
-* React
-* TypeScript
-* Vite
-* TanStack Router / TanStack Start
-* Tailwind CSS
-* Lucide
-* MediaPipe Pose
-* Browser Web APIs for camera and voice features
+- Range-of-motion consistency
+- Joint-angle consistency
+- Rep tempo consistency
+- Movement degradation
+- Overall performance score when sufficient data is available
 
-Backend:
+### Gym Finder
 
-* Python
-* FastAPI
-* Uvicorn
-* Pydantic
-* HTTPX
-* python-multipart
-* python-dotenv
-* Groq API
+Searches real fitness locations using the Geoapify Geocoding and Places APIs.
 
-External services:
+- City, neighborhood, or postal-code search
+- Location and map links
+- 27 km default search radius
+- No fabricated fallback listings when the provider fails
 
-* Groq AI API
-* Geoapify Geocoding API
-* Geoapify Places API
-* MediaPipe CDN
+### Workout Planner
 
-# PROJECT STRUCTURE
+Provides local workout plans for:
 
+- Muscle gain
+- Strength
+- Fat loss
+
+The planner follows a Monday-Saturday push/pull/legs structure with Sunday reserved for rest or recovery.
+
+## Technology Stack
+
+| Area | Technologies |
+|---|---|
+| Frontend | React, TypeScript, Vite, TanStack Router/Start, Tailwind CSS, Radix UI |
+| Media & UX | MediaPipe Pose, Lucide, browser Camera and Speech APIs |
+| Backend | Python, FastAPI, Pydantic, HTTPX, Uvicorn |
+| AI Services | Groq vision and chat models |
+| Location Services | Geoapify Geocoding and Places APIs |
+| Deployment | Vercel |
+
+## Repository Structure
+
+```text
 RepAI/
-│
 ├── backend/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── test_meal_scanner.py
-│
+│   ├── main.py                  # FastAPI application and API routes
+│   ├── requirements.txt         # Python dependencies
+│   └── test_meal_scanner.py     # Meal scanner tests
 ├── frontend/
-│   ├── package.json
-│   ├── package-lock.json
 │   ├── src/
-│   └── public/
-│       └── repai/
-│           └── index.html
-│
-├── vercel.json
-└── README.txt
+│   │   ├── components/          # Reusable UI components
+│   │   ├── routes/              # TanStack file-based routes
+│   │   ├── hooks/               # React hooks
+│   │   └── lib/                 # Shared utilities
+│   ├── public/                  # Static assets
+│   └── package.json
+├── vercel.json                  # Deployment configuration
+└── README.md
+```
 
-# HOW TO RUN
+## Getting Started
 
-1. Clone the repository
+### Prerequisites
 
+- Python 3.10 or newer
+- Node.js 18 or newer
+- npm
+- A Groq API key for AI chat and meal analysis
+- A Geoapify API key for gym search
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/vikas-g-10/RepAI.git
-
 cd RepAI
+```
 
-2. Set up the backend
+### 2. Configure the Backend
 
-Open a terminal in the project root and run:
-
+```bash
 cd backend
-
-Create a Python virtual environment:
-
 python -m venv venv
+```
 
-Activate it on Windows:
+Activate the environment:
 
+**Windows**
+
+```powershell
 venv\Scripts\activate
+```
 
-Activate it on Linux/macOS:
+**Linux/macOS**
 
+```bash
 source venv/bin/activate
-
-Install the required Python packages:
-
-pip install -r requirements.txt
-
-3. Configure API keys
-
-The backend requires API keys for the AI-powered meal scanner, AI Gym Buddy, and Gym Finder.
-
-Create a file:
-
-backend/.env
-
-Add:
-
-GROQ_API_KEY=your_groq_api_key
-GEOAPIFY_API_KEY=your_geoapify_api_key
-
-Optional model configuration:
-
-REPAI_MEAL_VISION_MODEL=qwen/qwen3.8-27b
-REPAI_BUDDY_CHAT_MODEL=qwen/qwen3.8-27b
-
-Optional Gym Finder configuration:
-
-REPAI_GYM_FINDER_TIMEOUT_SECONDS=8
-REPAI_GYM_FINDER_RADIUS_METERS=27000
-
-Never commit the .env file to GitHub.
-
-4. Start the backend
-
-From the backend directory:
-
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-
-The backend will run at:
-
-http://localhost:8000
-
-Health check:
-
-http://localhost:8000/health
-
-5. Install frontend dependencies
-
-Open a SECOND terminal.
-
-Go to the project root:
-
-cd RepAI
-
-Then:
-
-cd frontend
+```
 
 Install dependencies:
 
-npm install
+```bash
+pip install -r requirements.txt
+```
 
-6. Start the frontend
+Create `backend/.env`:
 
-From the frontend directory:
+```dotenv
+GROQ_API_KEY=your_groq_api_key
+GEOAPIFY_API_KEY=your_geoapify_api_key
 
-npm run dev
+# Optional overrides
+REPAI_MEAL_VISION_MODEL=qwen/qwen3.8-27b
+REPAI_BUDDY_CHAT_MODEL=qwen/qwen3.8-27b
+REPAI_GYM_FINDER_TIMEOUT_SECONDS=8
+REPAI_GYM_FINDER_RADIUS_METERS=27000
+```
 
-The Vite development server will normally be available at:
+Never commit API keys or `.env` files.
 
-http://localhost:5173
+### 3. Start the Backend
 
-Open the displayed localhost URL in your browser.
-
-# RUNNING THE COMPLETE PROJECT
-
-You need TWO terminals running at the same time.
-
-Terminal 1 — Backend:
-
-cd RepAI\backend
-
-venv\Scripts\activate
-
+```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
 
-Terminal 2 — Frontend:
+Backend URLs:
 
-cd RepAI\frontend
+- API: http://localhost:8000
+- Health check: http://localhost:8000/health
 
-npm install
+Interactive API documentation is available at:
 
-npm run dev
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
-Then open:
+### 4. Install and Start the Frontend
 
-http://localhost:5173
+Open a second terminal:
 
-# API ENDPOINTS
-
-Health:
-
-GET /health
-
-Diet Planner:
-
-POST /api/diet/plan
-
-Meal Photo Scanner:
-
-POST /api/diet/analyze-meal-photo
-
-AI Gym Buddy:
-
-POST /api/chat/buddy
-
-Habit Prediction:
-
-POST /api/habits/predict-skip
-
-Performance Analyzer:
-
-POST /api/performance/report
-
-Gym Finder:
-
-POST /api/gyms/recommend
-
-# IMPORTANT NOTES
-
-* Start the backend before using features that require the FastAPI server.
-* The frontend automatically uses http://localhost:8000 when running locally.
-* The frontend communicates with the backend through the API endpoints above.
-* The AI Meal Scanner and AI Gym Buddy require GROQ_API_KEY.
-* The Gym Finder requires GEOAPIFY_API_KEY.
-* Webcam features require browser camera permission.
-* Voice coaching requires browser microphone/audio permissions where applicable.
-* Nutrition and calorie values are estimates and should not be treated as medical or clinical advice.
-* Keep all API keys in backend/.env and never upload them to GitHub.
-
-# BUILD FRONTEND
-
-To create a production frontend build:
-
+```bash
 cd frontend
+npm install
+npm run dev
+```
 
+The development server normally runs at http://localhost:5173.
+
+## API Overview
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| `GET` | `/health` | Backend health check |
+| `POST` | `/api/diet/plan` | Generate a diet and grocery plan |
+| `POST` | `/api/diet/analyze-meal-photo` | Analyze an uploaded meal photo |
+| `POST` | `/api/chat/buddy` | Chat with the AI gym coach |
+| `POST` | `/api/habits/predict-skip` | Estimate workout-skip risk |
+| `POST` | `/api/performance/report` | Analyze workout performance |
+| `POST` | `/api/gyms/recommend` | Search for real nearby gyms |
+
+## Build and Quality Checks
+
+Create a production frontend build:
+
+```bash
+cd frontend
 npm run build
+```
 
-To preview the production build:
+Preview the built application:
 
+```bash
 npm run preview
+```
 
-# LINTING
+Run the frontend linter:
 
-From the frontend directory:
-
+```bash
 npm run lint
+```
 
-# REPOSITORY
+## Browser Requirements
 
-https://github.com/vikas-g-10/RepAI
+- Webcam permission is required for real-time posture analysis
+- Camera access is required for meal-photo capture where supported
+- Microphone or audio support may be required for voice features
+- External AI and location features require server-side API configuration
+
+## Configuration Notes
+
+- The frontend expects the backend at `http://localhost:8000` during local development
+- `GROQ_API_KEY` enables the meal scanner and AI coach
+- `GEOAPIFY_API_KEY` enables gym search
+- API keys must remain in `backend/.env`; never expose them to frontend code
+- Nutrition, calorie, and fitness estimates are guidance rather than medical advice
+
+## Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+2. Create a feature branch:
+
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+
+3. Commit your changes with a clear message
+4. Push the branch to your fork
+5. Open a pull request
+
+Before submitting, verify that backend APIs remain compatible and run the available frontend and backend checks.
+
+## License
+
+No license has been specified for this repository. Please contact the repository owner before using it outside personal or educational evaluation.
+
+## Acknowledgements
+
+- MediaPipe for browser-based pose tracking
+- Groq for vision and conversational AI models
+- Geoapify for geocoding and location search
+- The React, TanStack, FastAPI, and open-source ecosystem
+
+## Repository
+
+- GitHub: https://github.com/vikas-g-10/RepAI
+- Live Demo: https://rep-ai-nine.vercel.app
